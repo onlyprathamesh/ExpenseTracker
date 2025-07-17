@@ -1,7 +1,7 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const {generateToken} = require("../utils/generateToken");
-const { setTokenCookie } = require("../utils/cookie");
+const { setTokenCookie, handleClearCookie } = require("../utils/cookie");
 
 const registerUser = async (req, res) => {
     const {userName, password} = req.body;
@@ -45,4 +45,13 @@ const loginUser = async (req, res) => {
     }
 };
 
-module.exports = { registerUser, loginUser };
+const logOutUser = async (req, res) => {
+    try {
+        handleClearCookie(res);
+        return res.status(200).send({msg:"Logged out successfully"});
+    } catch (error) {
+        res.status(400).send({msg:"Error logging out", error});
+    }
+};
+
+module.exports = { registerUser, loginUser, logOutUser };

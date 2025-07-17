@@ -7,4 +7,12 @@ const setTokenCookie = (res, token) => {
     });
 };
 
-module.exports = {setTokenCookie};
+const handleClearCookie = (res) => {
+    res.clearCookie("token", {
+        httpOnly: true,
+        secure: false,
+        sameSite: "Lax"
+    });
+};
+
+module.exports = {setTokenCookie, handleClearCookie};
