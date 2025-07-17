@@ -1,12 +1,37 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## `client/README.md`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```md
+# Client - React Frontend
 
-## Expanding the ESLint configuration
+This folder contains the frontend built with React.js and Tailwind CSS.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+# 📁 Folder Structure
+src/
+├── api/             # Axios requests to server
+├── components/      # Reusable UI components
+├── pages/           # Login, Register, Home
+├── App.jsx          # Main app routing
+
+# 🌟 Features
+- UI with Tailwind
+- Protected Routes using useNavigate
+- Modal for adding expense
+- Form validations
+- Conditional rendering of logout
+# 🔐 Authentication
+- JWT is stored in cookies. On login/signup, a token is set via HTTP-only cookie from the backend.
+# ⚠️ Validations
+- Expense form validates amount and category before submission.
+- Errors are shown inline; modal stays open if invalid.
+
+# 🛠️ Setup
+
+```bash
+cd client
+npm install
+npm run dev
+
